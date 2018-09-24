@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>links</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="first">
+Enter your name:<input type="texgt" ng-model="name">
+{{name}}
+</div>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("first",function($scope){
+		$scope.name="siddu";
+	});
+</script>
+</body>	
+</html>

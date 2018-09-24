@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>links</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="fifth as x">
+{{x.a}}
+{{x.b}}
+</div>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("fifth",fourthfun);
+	function fourthfun()
+	{
+		this.a=51;
+		this.b=52;
+	}
+</script>
+</body>	
+</html>

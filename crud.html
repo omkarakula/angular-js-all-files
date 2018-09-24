@@ -1,0 +1,78 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title></title>  
+</head>  
+<body>  
+  
+    <div ng-app="mainApp" data-ng-controller="CRUDController">  
+  
+        <table>  
+            <tr>  
+                <td>EmpId: </td>  
+                <td>  
+                    <span>{{ EmpModel.Id }}</span></td>  
+            </tr>  
+            <tr>  
+                <td>Name:</td>  
+                <td>  
+                    <input type="text" data-ng-model="EmpModel.Name" /></td>  
+            </tr>  
+            <tr>  
+                <td>Salary:</td>  
+                <td>  
+                    <input type="number" data-ng-model="EmpModel.Salary" /></td>  
+            </tr>  
+            <tr>  
+                <td></td>  
+                <td>  
+                    <input type="button" value="Save Data" ng-click="AddData()"></td>  
+            </tr>  
+        </table>  
+		
+		
+		
+		 <table border="1" width="50%" style="border-collapse:collapse">  
+			<tr>
+               <th>Id</th>  
+               <th>Name</th>  
+               <th>Salary</th>  
+			 </tr>
+           <tr data-ng-repeat="Emp in EmpList">  
+               <td>{{ Emp.Id }}</td>  
+               <td>{{ Emp.Name }}</td>  
+               <td>{{ Emp.Salary }}</td>  
+           </tr>  
+       </table>  
+    </div>  
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script>
+  var app = angular.module("mainApp", []);  
+       app.controller('CRUDController', function ($scope) {  
+  
+           $scope.EmpModel = {  
+               Id: 0,  
+               Salary: 0,  
+               Name: '',  
+           };  
+  
+           $scope.EmpList = [];  
+           $scope.AddData = function () {  
+               var _emp = {  
+                   Id: $scope.EmpList.length + 1,  
+                   Name: $scope.EmpModel.Name,  
+                   Salary: $scope.EmpModel.Salary  
+               };  
+               $scope.EmpList.push(_emp);  
+               ClearModel();  
+           }  
+  
+           function ClearModel() {  
+               $scope.EmpModel.Id = 0;  
+               $scope.EmpModel.Name = '';  
+               $scope.EmpModel.Salary = 0;  
+           }  
+       });
+</script>	   
+</body>  
+</html>

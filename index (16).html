@@ -1,0 +1,48 @@
+<html>
+	<head>
+	</head>
+	<body ng-app="myApp">
+			<div ng-controller="oneCon">
+				<div>
+					a value is :{{sa}}
+					b value is :{{sb}}
+					sum from service:{{sums}}
+				</div>
+				<div>
+					a value is :{{fa}}
+					b value is :{{fb}}
+					sum from factory:{{sumf}}
+				</div>
+			</div>
+		<script src="angular.min.js"></script>
+		<script>
+			angular.module("myApp",[])
+			.service("abc",function(){
+					this.a=50;
+					this.b=20;
+					this.sum = function(){
+						return this.a+this.b;
+					}
+				})
+				.factory("xyz",function(){
+					
+					return{
+					a:10,
+					b:20,
+					sum:function(){
+						return this.a+this.b;
+					}
+					}
+				})
+				.controller("oneCon",function(abc,xyz,$scope){
+					$scope.sa = abc.a;
+					$scope.sb = abc.b;
+					$scope.fa = xyz.a;
+					$scope.fb = xyz.b;
+					$scope.sums = abc.sum();
+					$scope.sumf = xyz.sum();
+				})
+				
+		</script>
+	</body>
+</html>

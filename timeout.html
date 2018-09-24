@@ -1,0 +1,17 @@
+<body ng-app="myapp">
+<div ng-controller="myctrl">
+{{message}}
+
+</div>
+<script src="angular.min.js"></script>
+<script>
+	angular.module("myapp",[])
+	.controller("myctrl",function($scope,$timeout){
+		$scope.message="hi to all";
+		$timeout(function(){
+			$scope.message="welcome";
+		},2000);
+	});
+	
+</script>
+</body>

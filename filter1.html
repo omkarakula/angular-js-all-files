@@ -1,0 +1,35 @@
+<div ng-app="filterApp">
+	<div ng-controller="filtercon">
+	<input type="text" ng-model="abc">
+		<table>
+		<tr>
+			<th ng-click="sortfun('name')">Name</th>
+			<th ng-click="sortfun('age')">Age</th>
+			<th ng-click="sortfun('sal')">Salary</th>
+		</tr>
+			<tr ng-repeat="x in emp|filter:abc|orderBy:sortp">
+				<td>{{x.name|uppercase}}</td>
+				<td>{{x.age}}</td>
+				<td>{{x.sal|currency:"&#8377;":3}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<script src="angular.min.js"></script>
+
+<script>
+	angular.module("filterApp",[])
+		.controller("filtercon",function($scope){
+			$scope.sortp=null;
+			$scope.emp=[
+				{name:"siddu",age:28,sal:2000},
+				{name:"shravan",age:32,sal:3000},
+				{name:"raju",age:20,sal:5000}
+			]
+			$scope.sortfun=function(x)
+			{
+				$scope.sortp=x;
+			}
+			
+		})
+</script>

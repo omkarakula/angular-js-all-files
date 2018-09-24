@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>links</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="first">
+	{{a}}<br>
+	{{b}}<br>
+	{{x}}
+
+</div>
+<div ng-controller="second">
+	{{a}}<br>
+	{{b}}<br>
+	{{x}}
+
+</div>
+<div ng-controller="third">
+	{{a}}<br>
+	{{b}}<br>
+	{{x}}
+</div>
+<script>
+	var app=angular.module("myApp",[]);
+		app.controller("first",function($scope){
+			$scope.a=10;
+			$scope.b=20;
+		});
+		app.controller("second",function($scope,$rootScope){
+			$scope.a=22;
+			$scope.b=23;
+			$rootScope.x=50;
+		});
+		app.controller("third",function($scope,$rootScope){
+			$scope.a=33;
+			$scope.b=34;
+			$rootScope.x=80;
+		});
+		
+		
+		</script>
+</body>	
+</html>

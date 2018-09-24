@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angularjs</title>
+</head>
+<body>
+<div ng-app="myApp">
+<div ng-controller="myCtrl">
+X value:{{x}}<br>
+Y value:{{y}}<br>
+Resulet:{{result}}
+<button ng-click="calcadd()">ADD</button>
+<button ng-click="calcsub()">SUB</button>
+
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script>
+	angular.module("myApp",[])
+	.service("math",function(){
+		this.add=function(x,y)
+			{
+				return Number(x)+Number(y);
+			}
+			this.sub=function(x,y)
+			{
+				return Number(x)-Number(y);
+			}
+		})
+		.controller("myCtrl",function($scope,math){
+				$scope.x=10;
+				$scope.y=20;
+				$scope.result=0;
+				$scope.calcadd=function()
+				{
+					$scope.result=math.add($scope.x,$scope.y);
+					
+				}
+				$scope.calcsub=function()
+				{
+					$scope.result=math.sub($scope.x,$scope.y);
+					
+				}
+		});
+</script>
+</body>
+</html>

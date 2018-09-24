@@ -1,0 +1,36 @@
+<body ng-app="myApp">
+<!--{{"Siddu"|uppercase}}<br>
+{{"Siddu"|lowercase}}<br>
+{{25|currency:"&#8377":5}}<br>-->
+<input type="text" ng-model="abc">
+<table ng-controller="myCtrl">
+	<tr>
+		<th>S.No</th>
+		<th ng-click="sortfun('name')">Name</th>
+		<th ng-click="sortfun('age')">Age</th>
+		<th ng-click="sortfun('sal')">Salary</th>
+	</tr>
+	<tr ng-repeat="x in emp|filter:abc|orderBy:sortp">
+		<td>{{$index+1}}</td>
+		<td>{{x.name|uppercase}}</td>
+		<td>{{x.age}}</td>
+		<td>{{x.sal|currency:"&#8377;":5}}</td>
+	</tr>
+</table>
+<script src="angular.min.js"></script>
+<script>
+	angular.module("myApp",[])
+	.controller("myCtrl",function($scope){
+		$scope.sortp=null;
+		$scope.emp=[
+			{name:"siddu",age:28,sal:20000},
+			{name:"shravan",age:32,sal:50000},
+			{name:"raju",age:25,sal:30000}
+		]
+		$scope.sortfun=function(x)
+		{
+			$scope.sortp=x;
+		}
+	});
+</script>
+</body>

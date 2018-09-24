@@ -1,0 +1,29 @@
+<body ng-app="myApp">
+<div ng-controller="myCtrl">
+	A value:{{sa}}<br>
+	A value:{{sb}}<br>
+	sum:{{sums}}
+	<hr>
+	A value:{{fa}}<br>
+	A value:{{fb}}<br>
+	sum:{{sumf}}
+</div>
+<script src="angular.min.js"></script>
+<script>
+	angular.module("myApp",[])
+	.service("math",function(){
+		this.add=function(x,y){
+			return Number(x)+ Number(y);
+		}
+	})
+	.controller("myCtrl",function(math,$scope){
+		$scope.x=30;
+		$scope.y=20;
+		$scope.result=0;
+		#scope.calAdd=function()
+		{
+			$scope.result=math.add($scope.x+$scope.y);
+		}
+		});
+</script>
+</body>

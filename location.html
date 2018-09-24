@@ -1,0 +1,18 @@
+<body ng-app="myapp">
+<div ng-controller="myctrl">
+{{myurl}}<br>
+{{protocol}}
+{{path}}
+
+</div>
+<script src="angular.min.js"></script>
+<script>
+	angular.module("myapp",[])
+	.controller("myctrl",function($scope,$location){
+		$scope.myurl=$location.absUrl();
+		$scope.path=$location.path();
+		$scope.protocol=$location.protocol();
+	});
+	
+</script>
+</body>

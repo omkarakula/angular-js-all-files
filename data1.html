@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>links</title>
+	
+</head>
+<body ng-app="myApp">
+<div ng-controller="srvs">
+	{{myurl}}<br>
+	{{myurl1}}
+</div>
+<script src="angular.min.js"></script>
+<script>
+angular.module("myApp",[])
+.controller("srvs",function($scope,$location){
+	$scope.myurl=$location.Url();
+	$scope.myurl1=$location.search();
+	//console.log($scope.myurl);
+});
+	
+</script>
+</body>	
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>links</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myCtrl">
+
+A value is:{{a}}<br>
+B value is:{{b}}<br>
+sum of two value is:{{a+b}}<br>
+<br>
+<br>
+
+sum is :{{sumval}}<br>
+enter A value:<input type="text" ng-model="a"><br>
+enter B value:<input type="text" ng-model="b"><br>
+<input type="submit" ng-click="sumfun()">
+
+<hr>
+<h2>One Time databinding</h2>
+{{::a}}<br>
+{{::b}}<br>
+</div>
+<script>
+	var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.a=10;
+			$scope.b=20;
+			$scope.sumfun=function()
+			{
+				$scope.sumval=Number($scope.a)+Number($scope.b);
+			}
+			
+		});
+		</script>
+</body>	
+</html>

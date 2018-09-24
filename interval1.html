@@ -1,0 +1,18 @@
+<body ng-app="myapp">
+<div ng-controller="myctrl">
+<input type="text" ng-model="message"><br>
+<button ng-click="$log.log(message)">log</button>
+<button ng-click="$log.info(message)">info</button>
+<button ng-click="$log.warn(message)">warn</button>
+<button ng-click="$log.error(message)">error</button>
+<button ng-click="$log.debug(message)">log</button>
+</div>
+<script src="angular.min.js"></script>
+<script>
+	angular.module("myapp",[])
+	.controller("myctrl",["$scope","$log",function($scope,$log){
+		$scope.$log=$log;
+		$scope.message="helloworld!";
+	}]);
+</script>
+</body>

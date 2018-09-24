@@ -1,0 +1,30 @@
+<script src="angular.min.js"></script>
+<body>
+
+    <div ng-app="">
+
+    <form name="form1" ng-controller="x" method="post">
+
+        <label>Your Name:</label>
+
+        <input name="name" ng-model="initialname" ng-minlength="3" ng-maxlength="20">
+		<div ng-show="form1.$submitted || form1.name.$touched">
+        <span style="color:red" ng-show="form1.name.$error.minlength">
+
+        Your Name Should Contain Atleast 3 Characters</span>
+
+        <span style="color:red" ng-show="form1.name.$error.maxlength">
+
+        Sorry You are Exceeding the Limit</span>
+
+        <br />
+
+        <br />
+		
+        <input type="submit" value="Submit"/>
+</div>
+    </form>
+
+    </div>
+
+</body>

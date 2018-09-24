@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angularjs</title>
+</head>
+<body>
+<div ng-app="myApp">
+<div ng-controller="myCtrl">
+X value:{{sa}}<br>
+Y value:{{sb}}<br>sum:{{ssum}}
+<hr>
+X value:{{fa}}<br>
+Y value:{{fb}}<br>sum:{{fsum}}
+<hr>
+
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script>
+	angular.module("myApp",[])
+	.service("abc",function(){
+			this.a=10;
+			this.b=30;
+			this.sum=function()
+			{
+				return this.a+this.b;
+			}
+		})
+		.factory("xyz",function(){
+			return{
+				a:33,
+				b:32,
+				sum:function(){
+					return this.a+this.b;
+				}
+			}
+		})
+		.controller("myCtrl",function($scope,abc,xyz){
+				$scope.sa=abc.a;
+				$scope.sb=abc.b;
+				$scope.ssum=abc.sum();
+				$scope.fa=xyz.a;
+				$scope.fb=xyz.b;
+				$scope.fsum=xyz.sum();
+		});
+</script>
+</body>
+</html>

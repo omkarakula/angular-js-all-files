@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>links</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="third">
+{{a}}
+{{b}}
+</div>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("third",["$scope",function(x){
+		x.a=31;
+		x.b=32;
+	}]);
+</script>
+</body>	
+</html>
